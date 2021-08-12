@@ -8,7 +8,7 @@ This is a fork of [selfire1/BibleGateway-to-Obsidian](https://github.com/selfire
 - `bg2obs.sh`:
   - Update total book count to 73
   - Update book list for Catholic bible (source: [USCCB](https://bible.usccb.org/bible))
-  - Update abbreviations in `abbarray` to match the *Catechism of the Catholic Church* (last page)
+  - Update abbreviations in `abbarray` to match the USCCB definitions *[page 9 here](https://www.usccb.org/resources/2021cal_1.pdf)*
   - Change default translation from "WEB" to "NABRE"
   - Add translation to note title to facilitate working with multiple translations in Obsidian
 - `The Bible.md` updates:
