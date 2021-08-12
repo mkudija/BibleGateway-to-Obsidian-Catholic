@@ -67,7 +67,7 @@ lengtharray=(50 40 27 36 34 24 21 4 31 24 22 25 29 36 10 13 14 16 10 16 15 42 15
 
 # Abbreviation list
 declare -a abbarray # Delaring the abbreviations for each book. You can adapt if you'd like
-abbarray=(Gen Ex Lev Num Deut Jos Judg Ruth "1 Sam" "2 Sam" "1 Kings" "2 Kings" "1 Chr" "2 Chr" Ezra Neh Tob Jdt Esth "1 Macc" "2 Macc" Job Ps Prov Eccl Song Wis Sir Isa Jer Lam Bar Ezek Dan Hos Joel Am Obad Jon Mic Nah Hab Zeph Hag Zech Mal Mt Mk Lk Jn Acts Rom "1 Cor" "2 Cor" Gal Eph Phil Col "1 Thess" "2 Thess" "1 Tim" "2 Tim" Titus Philem Heb Jas "1 Pet" "2 Pet" "1 Jn" "2 Jn" "3 Jn" Jude Rev)
+abbarray=(Gn Ex Lv Nm Dt Jos Jgs Ru "1 Sm" "2 Sm" "1 Kgs" "2 Kgs" "1 Chr" "2 Chr" Ezr Neh Tb Jdt Est "1 Mc" "2 Mc" Jb Ps Prv Eccl Sg Wis Sir Is Jer Lam Bar Ez Dn Hos Jl Am Ob Jon Mi Na Hb Zep Hg Zec Mal Mt Mk Lk Jn Acts Rom "1 Cor" "2 Cor" Gal Eph Phil Col "1 Thes" "2 Thes" "1 Tm" "2 Tm" Ti Phlm Heb Jas "1 Pt" "2 Pt" "1 Jn" "2 Jn" "3 Jn" Jude Rv)
 
 
 if ${verbose} -eq "true"; then
