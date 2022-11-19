@@ -1,18 +1,27 @@
 # BibleGateway-to-Obsidian-Catholic
 
-This is a fork of [selfire1/BibleGateway-to-Obsidian](https://github.com/selfire1/BibleGateway-to-Obsidian) to support Catholic translations of the Bible.
+REPLACEto support Catholic translations of the Bible that include the [Deuterocanonical Books](https://matthewkudija.com/notes/Deuterocanonical-Books.html).
 
-### Updates include
+### Updates Include
 - `bg2md.rb`:
-  - Move to same directory as `bg2obs.sh`
+  - Move to same directory as `bg2obs.sh` to run directly, and include various versions of this file for reference or troubleshooting:
+    - `bg2md(140).rb`
+    - `bg2md(143).rb`
+    - `bg2md(144).rb`
 - `bg2obs.sh`:
   - Update total book count to 73
-  - Update book list for Catholic bible (source: [USCCB](https://bible.usccb.org/bible))
-  - Update abbreviations in `abbarray` to match the USCCB definitions *[page 9 here](https://www.usccb.org/resources/2021cal_1.pdf)*
-  - Change default translation from "WEB" to "NABRE"
+  - Update chapter count of Daniel from 12 to 14
+  - Update book list for the Catholic bible (source: [USCCB](https://bible.usccb.org/bible))
+  - Update abbreviations in `abbarray` to match the USCCB definitions ([page 9](https://www.usccb.org/resources/2021cal_1.pdf))
+  - Change default translation from "WEB" to "NABRE" (I also recommend "RSVCE")
   - Add translation to note title to facilitate working with multiple translations in Obsidian
+  - Add link to the appropriate Book, Chapter, and Translation page on Bible Gateway
+  - Remove args in the bash script and instaed hard-code the desired [jgclark's options](https://github.com/jgclark/BibleGateway-to-Markdown#running-the-script)
+    - row 159: `text=$(ruby bg2md.rb -c -l -v "${translation}" ${book} ${chapter})`
+REPLACEto format headers, footnotes, and crossrefs (these are not perfect, but a work in progress)
 - `The Bible.md` updates:
   - Update book list for Catholic bible (source: [USCCB](https://bible.usccb.org/bible))
+
 
 ### Setup & Usage
 
@@ -20,11 +29,51 @@ These are the steps I followed to get set up:
 - clone this repo
 - install missing packages: `sudo gem install colorize optparse clipboard`
 - add custom CSS snippet for verse h6 headers using [this link](https://forum.obsidian.md/t/organising-the-bible-in-obsidian/1490/92)
-- I ran the script for three Catholic translations:
-  - `bash bg2obs.sh -v NABRE -i -e`
-  - `bash bg2obs.sh -v RSVCE -i -e`
-  - `bash bg2obs.sh -v NRSVCE -i -e`
+- run the script for various Catholic translations:
+  - `bash bg2obs.sh -v NABRE -a` (`-a` to include chapter alias)
+  - `bash bg2obs.sh -v NABRE -a -r` (`-r` to exclude crossrefs)
+  - `bash bg2obs.sh -v RSVCE -a`
+  - `bash bg2obs.sh -v NRSVCE -a`
 - copy resulting `Scripture (NABRE)` to your Obsidian vault
+
+
+### Known Issues
+Most of my testing is with the RSVCE version. Known issues include:
+- [ ] Esther 1 drops chapters 11 and 12
+
+
+### Other To-Dos
+- [ ] Add support for NABRE book intros: [example: John](https://www.biblegateway.com/passage/intro/?search=John&version=NABRE)
+
+
+### Translation and Numbering Notes
+
+- The following Bible Gateway translations are either a Catholic version or appear to have a Catholic includsion of the Deuterocanonical books:
+  - [RSVCE](https://www.biblegateway.com/versions/Revised-Standard-Version-Catholic-Edition-RSVCE-Bible/#booklist)
+  - [NABRE](https://www.biblegateway.com/versions/New-American-Bible-Revised-Edition-NABRE-Bible/#booklist)
+  - [DRA](https://www.biblegateway.com/versions/Douay-Rheims-1899-American-Edition-DRA-Bible/#booklist)
+  - [NRSVCE](https://www.biblegateway.com/versions/New-Revised-Standard-Version-Catholic-Edition-NRSVCE-Bible/#booklist)
+  - [NRSVACE](https://www.biblegateway.com/versions/New-Revised-Standard-Version-Anglicised-Catholic-Edition-NRSVACE-Bible/#booklist)
+  - [GNT](https://www.biblegateway.com/versions/Good-News-Translation-GNT-Bible/#booklist)
+- The following Bible Gateway translations include a Protestant-style Apocrypha at the end of the Bible, including various Deuterocanonical books:
+  - [CEB](https://www.biblegateway.com/versions/Common-English-Bible-CEB/#booklist)
+  - [NRSVA](https://www.biblegateway.com/versions/New-Revised-Standard-Version-Anglicised-NRSVA-Bible/#booklist)
+  - [NRSVUE](https://www.biblegateway.com/versions/New-Revised-Standard-Version-Updated-Edition-NRSVue-Bible/#booklist)
+  - [RSV](https://www.biblegateway.com/versions/Revised-Standard-Version-RSV-Bible/#booklist)
+  - [WYC](https://www.biblegateway.com/versions/Wycliffe-Bible-WYC/#booklist)
+- Daniel has 14 books (12 if excluding Greek portions). Daniel 13 is the story of the strength of Susanna; Daniel 14 is Bel and the Dragon and Daneil in the Lion's Den with Habakkuk
+- The Greek chapters of Esther are typically included in the existing 10 chapters. In the RSVCE for example, Esther 11 and 12 are inculded at the beginning of chapter 1: https://www.biblegateway.com/passage/?search=Esther+1&version=RSVCE
+- 1 & 2 Maccabees are typically placed either at the end of the Old Testament between Malachi and Matthew, or between the Historical and Wisdom books between Esther and Job.
+  - RSVCE places them between Esther and Job
+  - The Nova Vulgata places them between Malachi and Matthew: https://www.vatican.va/archive/bible/nova_vulgata/documents/nova-vulgata_vetus-testamentum_lt.html
+  - *[Liturgiam authenticam](https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20010507_liturgiam-authenticam_en.html)* expresses a preference for following the placement of the Nova Vulgata: "In preparing new translations, it would be helpful, though not obligatory, that the numbering of the verses also follow that of the [*Nova Vulgata Editio*] as closely as possible. (LA 37)"
+- There are some inconsistencies in chapter numbering:
+  - Joel:
+    - [Bible Gateway RSVCE](https://www.biblegateway.com/versions/Revised-Standard-Version-Catholic-Edition-RSVCE-Bible/and most other translations show 3 chapters: 
+show 4 chapters
+  - Malachi:
+    - [Bible Gateway RSVCE](https://www.biblegateway.com/versions/Revised-Standard-Version-Catholic-Edition-RSVCE-Bible/and most other translations show 4 chapters: 
+show 3 chapters
 
 
 ### Multiple Translations in Obsidian
@@ -54,7 +103,7 @@ This is what I tried:
 
 --- 
 
-*the remainder of this README is unchanged*
+*the remainder of this README is unchanged from [selfire1/BibleGateway-to-Obsidian](https://github.com/selfire1/BibleGateway-to-Obsidian)*
 
 # BibleGateway-to-Obsidian
 This script adapts [jgclark's wonderful BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) script to export for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
