@@ -1,6 +1,6 @@
 # BibleGateway-to-Obsidian-Catholic
 
-REPLACEto support Catholic translations of the Bible that include the [Deuterocanonical Books](https://matthewkudija.com/notes/Deuterocanonical-Books.html).
+This is a fork of [selfire1/BibleGateway-to-Obsidian](https://github.com/selfire1/BibleGateway-to-Obsidian) to support Catholic translations of the Bible that include the [Deuterocanonical Books](https://matthewkudija.com/notes/Deuterocanonical-Books.html).
 
 ### Updates Include
 - `bg2md.rb`:
@@ -18,7 +18,7 @@ REPLACEto support Catholic translations of the Bible that include the [Deuteroca
   - Add link to the appropriate Book, Chapter, and Translation page on Bible Gateway
   - Remove args in the bash script and instaed hard-code the desired [jgclark's options](https://github.com/jgclark/BibleGateway-to-Markdown#running-the-script)
     - row 159: `text=$(ruby bg2md.rb -c -l -v "${translation}" ${book} ${chapter})`
-REPLACEto format headers, footnotes, and crossrefs (these are not perfect, but a work in progress)
+  - Update regex to format headers, footnotes, and crossrefs (these are not perfect, but a work in progress)
 - `The Bible.md` updates:
   - Update book list for Catholic bible (source: [USCCB](https://bible.usccb.org/bible))
 
