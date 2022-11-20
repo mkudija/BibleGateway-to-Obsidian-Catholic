@@ -13,7 +13,7 @@ REPLACEto support Catholic translations of the Bible that include the [Deuteroca
   - Update chapter count of Daniel from 12 to 14
   - Update book list for the Catholic bible (source: [USCCB](https://bible.usccb.org/bible))
   - Update abbreviations in `abbarray` to match the USCCB definitions ([page 9](https://www.usccb.org/resources/2021cal_1.pdf))
-  - Change default translation from "WEB" to "NABRE" (I also recommend "RSVCE")
+  - Change default translation from "WEB" to "RSVCE" (I also recommend "NABRE")
   - Add translation to note title to facilitate working with multiple translations in Obsidian
   - Add link to the appropriate Book, Chapter, and Translation page on Bible Gateway
   - Remove args in the bash script and instaed hard-code the desired [jgclark's options](https://github.com/jgclark/BibleGateway-to-Markdown#running-the-script)
@@ -34,7 +34,7 @@ These are the steps I followed to get set up:
   - `bash bg2obs.sh -v NABRE -a -r` (`-r` to exclude crossrefs)
   - `bash bg2obs.sh -v RSVCE -a`
   - `bash bg2obs.sh -v NRSVCE -a`
-- copy resulting `Scripture (NABRE)` to your Obsidian vault
+- copy resulting `Scripture (RSVCE)` to your Obsidian vault
 
 
 ### Known Issues
